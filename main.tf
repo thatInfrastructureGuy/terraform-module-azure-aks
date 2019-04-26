@@ -29,7 +29,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   kubernetes_version         = "${var.kubernetes_version}"
   
   agent_pool_profile {
-    name                     = "${lower("${var.resource_group_name}")}"
+    name                     = "${var.worker_pool_name}"
     count                    = "${var.worker_vm_count}"
     vm_size                  = "${var.worker_vm_size}"
     os_type                  = "${var.worker_os_type}"

@@ -6,6 +6,11 @@ variable "resource_group_location" {
   description = "Azure Resource Group location"
 }
 
+variable "worker_pool_name" {
+  description = "Name of agentpool: lowercase, max 12 characters, permitted a-z,0-9"
+  default     = "default"
+}
+
 variable "worker_vm_count" {
   description = "Number of worker VMs to initially create"
   default     = "1"
