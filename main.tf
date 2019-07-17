@@ -1,4 +1,3 @@
-
 //-----------------AKS Networking--------------------------
 resource "azurerm_virtual_network" "k8s_advanced_network" {
   name                       = "${var.resource_group_name}vnet"
@@ -78,4 +77,25 @@ output "k8s_advanced_network_name" {
 }
 output "k8s_subnet_id" {
   value                      = "${azurerm_subnet.k8s_subnet.id}"
+}
+output "kubernetes_host" {
+  value                      = "${azurerm_kubernetes_cluster.k8s.kube_admin_config.0.host}"
+}
+output "kubernetes_username" {
+  value                      = "${azurerm_kubernetes_cluster.k8s.kube_admin_config.0.username}"
+}
+output "kubernetes_password" {
+  value                      = "${azurerm_kubernetes_cluster.k8s.kube_admin_config.0.password}"
+}
+output "kubernetes_ca_certificate" {
+  value                      = "${azurerm_kubernetes_cluster.k8s.kube_admin_config.0.cluster_ca_certificate}"
+}
+output "kubernetes_client_key" {
+  value                      = "${azurerm_kubernetes_cluster.k8s.kube_admin_config.0.client_key}"
+}
+output "kubernetes_client_certificate" {
+  value                      = "${azurerm_kubernetes_cluster.k8s.kube_admin_config.0.client_certificate}"
+}
+output "node_resource_group" {
+  value                      = "${azurerm_kubernetes_cluster.k8s.node_resource_group}"
 }
